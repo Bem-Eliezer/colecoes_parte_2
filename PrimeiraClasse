@@ -1,0 +1,17 @@
+/*
+ * @author bem
+ */
+
+public class PrimeiraClasse {
+
+    public static void main(String args[]) {
+      System.out.println("olá ")
+      Cliente cliente = new Cliente();
+      cliente.cadastrarEndereco("Rua 1");
+      String end = cliente.retornarNomeCliente();
+      /*  cliente.imprimirEndereco(); @depre 
+       * @see end
+      */
+      System.out.println(end);
+    }
+}
