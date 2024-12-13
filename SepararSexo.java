@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,7 +21,7 @@ public class SepararSexo {
                System.out.println("Entrada inválida! Use o formato Nome,M ou Nome,F.");
                continue;
            }
-
+           
            String nome = partes[0].trim();
            String sexo = partes[1].trim().toUpperCase();
 
@@ -33,21 +34,27 @@ public class SepararSexo {
                continue;
            }
 
-        
+           
            System.out.print("Deseja continuar? (S/N): ");
            continuar = scanner.nextLine().trim().toUpperCase();
-       } while (continuar.equals("S"));
+        } while (continuar.equals("S"));
+        
+        scanner.close();
 
-       scanner.close();
+        List<String> listaConcatenada = new ArrayList<>(masculino);
+        listaConcatenada.addAll(feminino);
+         Collections.sort(listaConcatenada );
+         System.out.println("Lista completa em ordem alfabetica: " + listaConcatenada );
+
 
        System.out.println("\nGrupo Masculino:");
        for (String nome : masculino) {
-           System.out.println(nome);
+           System.out.println(nome + " - M,");
        }
 
        System.out.println("\nGrupo Feminino:");
        for (String nome : feminino) {
-           System.out.println(nome);
+           System.out.println(nome + " - F,");
        }
    }
 }
